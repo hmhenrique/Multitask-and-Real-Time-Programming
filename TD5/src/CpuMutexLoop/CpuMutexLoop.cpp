@@ -25,11 +25,12 @@ void CpuMutexLoop::run()
 	std::cout << ">> Thread with priority : " << priority << std::endl;
 	if(beginMutex > 0)
 	{
-		loop->runTime((double) beginMutex / CLOCKS_PER_SEC * 1e3);
-		Mutex::Lock lock(*mutex, 10000);
+		loop->runTime((double) beginMutex / CLOCKS_PER_SEC * 1e3);                                  /*!< Before getting the mutex*/
+		Mutex::Lock lock(*mutex);
 		std::cout << ">>> Thread with priority " << priority << " WITH Mutex" << std::endl;
-		loop->runTime((double) durationMutex / CLOCKS_PER_SEC * 1e3);
-		loop->runTime((double) (execTime - (durationMutex + beginMutex)) / CLOCKS_PER_SEC * 1e3);
+		loop->runTime((double) durationMutex / CLOCKS_PER_SEC * 1e3);                               /*!< With the mutex*/
+		lock.~Lock();
+		loop->runTime((double) (execTime - (durationMutex + beginMutex)) / CLOCKS_PER_SEC * 1e3);   /*!< After unlock of the mutex*/
 	}
 	else
 	{

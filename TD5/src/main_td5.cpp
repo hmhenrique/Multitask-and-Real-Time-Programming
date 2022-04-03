@@ -19,7 +19,7 @@
 int main(int argc, char* argv[]) 
 {
 	/*!< Run the code in a single CPU by setting affinity for the thread 0*/
-	cpu_set_t  cpuset;
+	cpu_set_t cpuset;
 	CPU_ZERO(&cpuset);
 	CPU_SET(0, &cpuset);
 	sched_setaffinity(0, sizeof(cpu_set_t), &cpuset);
