@@ -59,8 +59,8 @@ int main(int argc, char* argv[])
 	
 	Calibrator calibrator(1000,5);
 	CpuLoop cpuLoop_A(calibrator);                                                               /*!< Defining the task for A*/
-	CpuLoop cpuLoop_B(calibrator);                                                               /*!< Defining the task for B*/                                                                   /*!< Defining the task for A*/                                                               /*!< Defining the task for A*/
-	CpuLoop cpuLoop_C(calibrator);                                                               /*!< Defining the task for C*/                                                                 /*!< Defining the task for A*/
+	CpuLoop cpuLoop_B(calibrator);                                                               /*!< Defining the task for B*/
+	CpuLoop cpuLoop_C(calibrator);                                                               /*!< Defining the task for C*/
 	
 	if (isInversionSafe)
 		std::cout << "\n\nStarting simulation with inversion priority control" << std::endl;
